@@ -5,7 +5,7 @@ date:   2024-10-07
 categories: math art
 ---
 
-![My image Name](/blog/_assets/images/hokusai_patterns/patterns.001.png)
+![My image Name](/blog/assets/images/hokusai_patterns/patterns.001.png)
 ![My image Name](/_assets/images/hokusai_patterns/patterns.002.png)
 ![My image Name](/_assets/images/hokusai_patterns/patterns.003.png)
 ![My image Name](/_assets/images/hokusai_patterns/patterns.004.png)
