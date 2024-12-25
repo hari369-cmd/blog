@@ -35,15 +35,19 @@
             fill: #6b6bff8b !important;
         }
         .tooltip {
-          position: fixed;
+          position: fixed; /* Change to fixed position */
           background: rgba(0, 0, 0, 0.8);
           color: white;
-          padding: 4px 8px;
-          border-radius: 4px;
+          padding: 8px 12px;
+          border-radius: 6px;
           font-size: 14px;
           pointer-events: none;
           display: none;
           z-index: 100;
+          transform: translate(-50%, -100%); /* Center horizontally and position above cursor */
+          margin-top: -15px; /* Add some space above cursor */
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          white-space: nowrap; /* Prevent text wrapping */
         }
         .legend {
             position: absolute;
