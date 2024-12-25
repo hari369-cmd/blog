@@ -7,15 +7,14 @@
             position: relative;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-        .prefecture {
-            fill: #e0e0e0;
-            stroke: #ffffff;
-            stroke-width: 0.5;
-            transition: fill 0.3s ease;
-            cursor: pointer;
+        path {
+          fill: #ffffff;
+          stroke: #000000;
+          stroke-width: 0.5;
+          cursor: pointer;
         }
-        .prefecture:hover {
-            fill: #b0b0b0;
+        path:hover {
+          fill: rgba(0, 0, 0, 0.1);;
         }
         .highlightVisited {
             fill: #ff6b6b !important;
@@ -32,7 +31,7 @@
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 20px;
             pointer-events: none;
             display: none;
             z-index: 100;
@@ -175,38 +174,145 @@
               <path d="M419.3 452.1l0.5 0.4 0.5 0.5 0.4 0.3 0.4 0.2 1.2 0.4 0.3 0.2 0.4 0.2 0.5 0 0.7-0.3 0.5-0.4 0.6-0.2 0.6 0 1 0.3 0.6 0.4 0.4 0.2 0.3 0.1 0.3-0.1 0.3-0.2 0.2-0.4 0.4 0.1 0.1 0.1 0.1 0.2 0.1 0.4 0.1 0.5 0.2 0.8-0.2 0.3-0.7 0.2-0.1 0.2 0.1 0.1 0.4 0.2 0.1 0.3 0 0.5-0.1 0.6 0 0.5 0.2 0.4 0.4 0.4 0.7 0.3 0.5 0.2 0.4 0.1 0.4 0 0.3 0 0.2 0.2 0.3 0.7 0.3 0.2 0.6 0.1 0.2 0.2 0.1 0.3 0 0.5-0.3 0.5-0.7 0.7-0.6 0.3-1.3 0.2-0.5 0.2-0.4 0.4-0.3 0.5-0.1 0.6 0.2 0.5 0.2 0.4 0.8 1.8-0.1 0.3-0.1 0.3 0.1 0.5 0.2 0.5 0.2 0.5 0 0.5-0.3 1.4 0 1.8 0 0.4-0.7 2.7 0.2 0.5 0.3 0.6-0.1 0.2-0.3 0.1-1.5 0-0.6 0.2-0.4 0.4-0.4 0.8-0.1 0.6-0.3 0.6-0.5 0.6-1 0.6-0.1 0.3-0.2 0.2-0.4 0-0.3 0.2-0.2 0.7-0.2 0.4-0.8 0.5-0.9-1.2-0.5-0.2-0.5-0.1-0.4 0.1-0.4 0.2-0.3 0.1-0.3 0-1.2-0.4-0.4 0-0.4 0.1-0.4 0.1-0.5 0.5-0.3 0.1-0.3 0-0.2-0.2-0.2-0.4-0.1-0.6 0.1-0.9 0.2-0.7 0.1-0.7-0.2-0.7-0.6-0.8-0.2-0.6-0.2-0.5-0.2-0.2-0.3-0.2-0.3-0.3-0.1-0.5 0.3-0.7 0.7-1 0.3-0.6 0.8-1 0.6-1 0.2-0.3 0.3-0.2 0.3-0.2 1.2 0 0.2-0.3 0-0.4-0.4-0.8-0.8-0.9-0.2-0.4-0.1-1.4-0.3-1.7 0.3-0.1 0.2-0.2 0.2-0.3-0.1-0.7 0.2-0.9 0.1-0.5-0.1-0.6-0.3-1-0.4-0.9-0.3-0.3-0.4-0.4-0.1-0.2-0.1-0.4 0.8-1.7 0.6-2.6 0.2-0.5 0.3-0.6 0.6-1.9z" id="JP29" name="Nara">
               </path>
             </g>
+            <g id="points">
+                <circle class="25.277519002685864|124.49053389226036" cx="90.9" cy="773.4" id="0">
+                </circle>
+                <circle class="33.80084257409547|140.01425619629384" cx="545.5" cy="486.1" id="1">
+                </circle>
+                <circle class="44.454997038357476|152.43323403952064" cx="909.1" cy="82.6" id="2">
+                </circle>   
+            </g>
+            <g id="label_points">
+                <circle class="Kagoshima" cx="266.4" cy="553.1" id="JP46">
+                </circle>
+                <circle class="Ōita" cx="294.3" cy="512" id="JP44">
+                </circle>
+                <circle class="Fukuoka" cx="272.8" cy="492.5" id="JP40">
+                </circle>
+                <circle class="Saga" cx="254.5" cy="504.2" id="JP41">
+                </circle>
+                <circle class="Nagasaki" cx="253.2" cy="517.3" id="JP42">
+                </circle>
+                <circle class="Kumamoto" cx="278.6" cy="522.3" id="JP43">
+                </circle>
+                <circle class="Miyazaki" cx="291.2" cy="539.2" id="JP45">
+                </circle>
+                <circle class="Tokushima" cx="377.3" cy="482.6" id="JP36">
+                </circle>
+                <circle class="Kagawa" cx="368.6" cy="471.3" id="JP37">
+                </circle>
+                <circle class="Ehime" cx="337.3" cy="487.6" id="JP38">
+                </circle>
+                <circle class="Kōchi" cx="348.7" cy="493.7" id="JP39">
+                </circle>
+                <circle class="Shimane" cx="326" cy="442.9" id="JP32">
+                </circle>
+                <circle class="Yamaguchi" cx="297.8" cy="469.6" id="JP35">
+                </circle>
+                <circle class="Tottori" cx="364.7" cy="429.9" id="JP31">
+                </circle>
+                <circle class="Hyōgo" cx="391.7" cy="440.8" id="JP28">
+                </circle>
+                <circle class="Kyōto" cx="415.8" cy="438.2" id="JP26">
+                </circle>
+                <circle class="Fukui" cx="435" cy="409" id="JP18">
+                </circle>
+                <circle class="Ishikawa" cx="444.9" cy="395.6" id="JP17">
+                </circle>
+                <circle class="Toyama" cx="464.1" cy="385.6" id="JP16">
+                </circle>
+                <circle class="Niigata" cx="511.7" cy="361.1" id="JP15">
+                </circle>
+                <circle class="Yamagata" cx="549.5" cy="312.8" id="JP06">
+                </circle>
+                <circle class="Akita" cx="557.1" cy="268" id="JP05">
+                </circle>
+                <circle class="Aomori" cx="562.3" cy="233.6" id="JP02">
+                </circle>
+                <circle class="Iwate" cx="585.2" cy="275.2" id="JP03">
+                </circle>
+                <circle class="Miyagi" cx="570.6" cy="313.1" id="JP04">
+                </circle>
+                <circle class="Fukushima" cx="560.1" cy="357.8" id="JP07">
+                </circle>
+                <circle class="Ibaraki" cx="553.9" cy="402" id="JP08">
+                </circle>
+                <circle class="Chiba" cx="550.4" cy="430.9" id="JP12">
+                </circle>
+                <circle class="Tokyo" cx="526.9" cy="419.8" id="JP13">
+                </circle>
+                <circle class="Kanagawa" cx="524.2" cy="427.8" id="JP14">
+                </circle>
+                <circle class="Shizuoka" cx="488" cy="443.9" id="JP22">
+                </circle>
+                <circle class="Aichi" cx="463.4" cy="442.6" id="JP23">
+                </circle>
+                <circle class="Mie" cx="439.9" cy="463.4" id="JP24">
+                </circle>
+                <circle class="Wakayama" cx="410.7" cy="481.6" id="JP30">
+                </circle>
+                <circle class="Ōsaka" cx="414" cy="457.4" id="JP27">
+                </circle>
+                <circle class="Okayama" cx="362.4" cy="447.5" id="JP33">
+                </circle>
+                <circle class="Hiroshima" cx="337" cy="456.8" id="JP34">
+                </circle>
+                <circle class="Hokkaidō" cx="626.5" cy="123.4" id="JP01">
+                </circle>
+                <circle class="Okinawa" cx="196.1" cy="730.3" id="JP47">
+                </circle>
+                <circle class="Gunma" cx="514.3" cy="389.4" id="JP10">
+                </circle>
+                <circle class="Nagano" cx="487.5" cy="399.3" id="JP20">
+                </circle>
+                <circle class="Tochigi" cx="540.2" cy="381.9" id="JP09">
+                </circle>
+                <circle class="Gifu" cx="458.6" cy="419.2" id="JP21">
+                </circle>
+                <circle class="Shiga" cx="431.3" cy="436.6" id="JP25">
+                </circle>
+                <circle class="Saitama" cx="525.2" cy="407.3" id="JP11">
+                </circle>
+                <circle class="Yamanashi" cx="504" cy="420.8" id="JP19">
+                </circle>
+                <circle class="Nara" cx="424.6" cy="468" id="JP29">
+                </circle>
+            </g>
         </svg>
     </div>
 
     <script>
         // Get tooltip element
         const tooltip = document.querySelector('.tooltip');
-        
-        // Add event listeners to all prefecture elements
-        document.querySelectorAll('.prefecture').forEach(prefecture => {
+        const mapContainer = document.querySelector('.map-container');
+
+        // Add event listeners to all prefecture paths
+        document.querySelectorAll('path[id^="JP"]').forEach(prefecture => {
             prefecture.addEventListener('mousemove', (e) => {
-                const name = prefecture.getAttribute('name');
-                tooltip.style.display = 'block';
-                
-                // Get viewport dimensions
-                const viewportWidth = window.innerWidth;
-                const viewportHeight = window.innerHeight;
-                
-                // Calculate tooltip position
-                let left = e.clientX + 10;
-                let top = e.clientY + 10;
-                
-                // Adjust position if tooltip would go off screen
-                if (left + tooltip.offsetWidth > viewportWidth) {
-                    left = e.clientX - tooltip.offsetWidth - 10;
+                const id = prefecture.getAttribute('id');
+                const labelPoint = document.querySelector(`circle[id="${id}"]`);
+                if (labelPoint) {
+                    const name = labelPoint.getAttribute('class');
+                    const cx = parseInt(labelPoint.getAttribute('cx'));
+                    const cy = parseInt(labelPoint.getAttribute('cy'));
+                    
+                    // Get container's position
+                    const containerRect = mapContainer.getBoundingClientRect();
+                    const svgRect = document.querySelector('svg').getBoundingClientRect();
+                    
+                    // Calculate scale factor
+                    const scaleX = svgRect.width / 1000;  // 1000 is SVG viewbox width
+                    const scaleY = svgRect.height / 846;  // 846 is SVG viewbox height
+                    
+                    // Calculate position relative to container
+                    const x = (cx * scaleX) + containerRect.left;
+                    const y = (cy * scaleY) + containerRect.top;
+                    
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = x + 'px';
+                    tooltip.style.top = y + 'px';
+                    tooltip.textContent = name;
                 }
-                if (top + tooltip.offsetHeight > viewportHeight) {
-                    top = e.clientY - tooltip.offsetHeight - 10;
-                }
-                
-                tooltip.style.left = left + 'px';
-                tooltip.style.top = top + 'px';
-                tooltip.textContent = name;
             });
 
             prefecture.addEventListener('mouseleave', () => {
