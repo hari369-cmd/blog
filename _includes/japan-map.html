@@ -26,23 +26,28 @@
             fill: #b8ff6b !important;
         }
         .highlightVisitingSoon:hover {
-            fill: #b8ff6bc0 !important;
+            fill: #b8ff6b8b !important;
         }
         .highlightPlanningToVisit {
             fill: #6b6bff !important;
         }
         .highlightPlanningToVisit {
-            fill: #6b6bffc0 !important;
+            fill: #6b6bff80 !important;
         }
         .tooltip {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 20px;
-            pointer-events: none;
-            display: none;
-            z-index: 100;
+          position: fixed; /* Change to fixed position */
+          background: rgba(0, 0, 0, 0.8);
+          color: white;
+          padding: 8px 12px;
+          border-radius: 6px;
+          font-size: 14px;
+          pointer-events: none;
+          display: none;
+          z-index: 100;
+          transform: translate(-50%, -100%); /* Center horizontally and position above cursor */
+          margin-top: -15px; /* Add some space above cursor */
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          white-space: nowrap; /* Prevent text wrapping */
         }
         .legend {
             position: absolute;
