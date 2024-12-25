@@ -14,7 +14,7 @@ Here's a map of the prefectures I've visited and plan to visit:
 <script>
 document.getElementById('japan-map').addEventListener('load', function() {
     const svgDoc = this.contentDocument;
-    const tokyo = svgDoc.getElementById('Tokyo');  // assuming your SVG has IDs for prefectures
+    const tokyo = svgDoc.getElementById('JP-13');  // assuming your SVG has IDs for prefectures
     if (tokyo) {
         tokyo.style.fill = '#4CAF50';  // green for visited
     }
