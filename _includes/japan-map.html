@@ -1,44 +1,84 @@
 
 <div class="map-container">
     <style>
-      .map-container {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-      }
-      .prefecture {
-        fill: #e0e0e0;
-        stroke: #ffffff;
-        stroke-width: 0.5;
-        transition: fill 0.3s ease;
-        cursor: pointer;
-      }
-      .prefecture:hover {
-        fill: #b0b0b0;
-      }
-      .highlightVisited {
-        fill: #ff6b6b !important;
-      }
-      .highlightVisitingSoon {
-        fill: #b8ff6b
-      }
-      .highlightPlanningToVisit {
-        fill: #6b6bff
-      }
-      .tooltip {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 14px;
-        pointer-events: none;
-        display: none;
-        z-index: 100;
-      }
+        .map-container {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .prefecture {
+          fill: #e0e0e0;
+          stroke: #ffffff;
+          stroke-width: 0.5;
+          transition: fill 0.3s ease;
+          cursor: pointer;
+        }
+        .prefecture:hover {
+          fill: #b0b0b0;
+        }
+        .highlightVisited {
+          fill: #ff6b6b !important;
+        }
+        .highlightVisitingSoon {
+          fill: #b8ff6b !important;
+        }
+        .highlightPlanningToVisit {
+          fill: #6b6bff !important;
+        }
+        .tooltip {
+          position: fixed;
+          background: rgba(0, 0, 0, 0.8);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 14px;
+          pointer-events: none;
+          display: none;
+          z-index: 100;
+        }
+        .legend {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: white;
+          padding: 10px;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .legend-item {
+          display: flex;
+          align-items: center;
+          margin: 5px 0;
+        }
+        .legend-color {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          border: 1px solid #666;
+        }
+        .legend-text {
+          font-size: 14px;
+        }
     </style>
-    
+      
     <div class="tooltip"></div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #ff6b6b;"></div>
+            <div class="legend-text">Visited</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #b8ff6b;"></div>
+            <div class="legend-text">Visiting Soon</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #6b6bff;"></div>
+            <div class="legend-text">Planning to Visit</div>
+        </div>
+    </div>
+      
     <svg baseprofile="tiny" height="846" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" version="1.2" viewbox="0 0 1000 846" width="1000" xmlns="http://www.w3.org/2000/svg">
         <g id="features">
           <!-- SVG paths from original map -->
