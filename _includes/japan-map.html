@@ -297,31 +297,32 @@
 
         // Add event listeners to all prefecture paths
         document.querySelectorAll('path[id^="JP"]').forEach(prefecture => {
-        prefecture.addEventListener('mousemove', (e) => {
-            const tooltip = document.querySelector('.tooltip');
-            const mapContainer = document.querySelector('.map-container');
-            const id = prefecture.getAttribute('id');
-            const labelPoint = document.querySelector(`circle[id="${id}"]`);
-            
-            if (labelPoint) {
-                const name = labelPoint.getAttribute('class');
+            prefecture.addEventListener('mousemove', (e) => {
+                const tooltip = document.querySelector('.tooltip');
+                const mapContainer = document.querySelector('.map-container');
+                const id = prefecture.getAttribute('id');
+                const labelPoint = document.querySelector(`circle[id="${id}"]`);
                 
-                // Get mouse position relative to the container
-                const rect = mapContainer.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Position tooltip near the cursor
-                tooltip.style.display = 'block';
-                tooltip.style.left = (x + 10) + 'px';  // Offset by 10px to not overlap cursor
-                tooltip.style.top = (y + 10) + 'px';
-                tooltip.textContent = name;
-            }
-        });
+                if (labelPoint) {
+                    const name = labelPoint.getAttribute('class');
+                    
+                    // Get mouse position relative to the container
+                    const rect = mapContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Position tooltip near the cursor
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = (x + 10) + 'px';  // Offset by 10px to not overlap cursor
+                    tooltip.style.top = (y + 10) + 'px';
+                    tooltip.textContent = name;
+                }
+            });
 
-        prefecture.addEventListener('mouseleave', () => {
-            const tooltip = document.querySelector('.tooltip');
-            tooltip.style.display = 'none';
+            prefecture.addEventListener('mouseleave', () => {
+                const tooltip = document.querySelector('.tooltip');
+                tooltip.style.display = 'none';
+            });
         });
 
         // Function to highlight prefectures
