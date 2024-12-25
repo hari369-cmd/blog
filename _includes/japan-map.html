@@ -35,18 +35,17 @@
             fill: #6b6bff8b !important;
         }
         .tooltip {
-          position: fixed; /* Change to fixed position */
+          position: fixed;
           background: rgba(0, 0, 0, 0.8);
           color: white;
-          padding: 8px 12px;
-          border-radius: 6px;
+          padding: 4px 8px;
+          border-radius: 4px;
           font-size: 14px;
           pointer-events: none;
           display: none;
           z-index: 100;
-          margin-top: 50px; /* Add some space above cursor */
-          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-          white-space: nowrap; /* Prevent text wrapping */
+          left: 80px;
+          top: 20px;
         }
         .legend {
             position: absolute;
@@ -71,6 +70,8 @@
     </style>
 
     <div class="map-container">
+        <div class="tooltip"></div>
+
         <div class="legend">
             <div class="legend-item">
                 <div class="legend-color" style="background-color: #ff6b6b;"></div>
@@ -290,8 +291,6 @@
             </g>
         </svg>
     </div>
-
-    <div class="tooltip"></div>
 
     <script>
         // Get tooltip element
