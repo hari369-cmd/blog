@@ -8,7 +8,7 @@ categories: travel
 Here's a map of the prefectures I've visited and plan to visit:
 
 <div id="japan-map">
-    <object id="japan-map" data="/blog/assets/images/japan_map/japan.svg" type="image/svg+xml" style="width: 100%; height: auto;"></object>
+    <object id="japan-map" data="/blog/assets/images/japan_map/jp.svg" type="image/svg+xml" style="width: 100%; height: auto;"></object>
 </div>
 
 <script>
@@ -27,7 +27,7 @@ document.getElementById('japan-map').addEventListener('load', function() {
     svgDoc.getElementsByTagName("svg")[0].appendChild(style);
 
     // Then highlight Tokyo
-    const tokyo = svgDoc.getElementById('JP-13');
+    const tokyo = svgDoc.getElementById('JP13');
     if (tokyo) {
         tokyo.style.fill = '#4CAF50';
     }
@@ -45,7 +45,7 @@ document.getElementById('japan-map').addEventListener('load', function() {
         });
         
         path.addEventListener('mouseout', function() {
-            if (this.id === 'JP-13') {
+            if (this.id === 'JP13') {
                 this.style.fill = '#4CAF50';
             } else {
                 this.style.fill = '#e0e0e0';
