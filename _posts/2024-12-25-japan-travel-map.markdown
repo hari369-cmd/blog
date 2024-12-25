@@ -9,8 +9,8 @@ categories: travel
 
 <script>
     highlightPrefectures(['JP03', 'JP04', 'JP06', 'JP07', 'JP08', 'JP10', 'JP11', 'JP12', 
-    'JP13', 'JP15', 'JP16', 'JP18', 'JP19', 'JP20', 'JP22', 'JP23', 'JP25', 'JP26',
+    'JP13', 'JP15', 'JP16', 'JP17', 'JP18', 'JP19', 'JP20', 'JP22', 'JP23', 'JP25', 'JP26',
     'JP27', 'JP29'], 'Visited');
     highlightPrefectures(['JP28', 'JP36', 'JP37', 'JP38', 'JP39'], 'VisitingSoon');
-    highlightPrefectures(['JP01', 'JP09', 'JP21', 'JP24', 'JP30', 'JP47'], 'PlanningToVisit');
+    highlightPrefectures(['JP01', 'JP09', 'JP21', 'JP24', 'JP30', 'J32', 'JP47'], 'PlanningToVisit');
 </script>
