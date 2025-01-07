@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Color Grid Visualization Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <style>
+        .text-colormap-container {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .card-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .controls {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        select, textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+        .grid-container {
+            overflow-x: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="text-colormap-root"></div>
+    <script type="text/babel">
+        // Generate color maps
+        const generateColorMap = (numColors, type = 'rainbow') => {
+            const colors = [];
+            for (let i = 0; i < numColors; i++) {
+                const t = i / (numColors - 1);
+                switch (type) {
+                    case 'rainbow':
+                        colors.push(`hsl(${t * 360}, 80%, 50%)`);
+                        break;
+                    case 'viridis':
+                        colors.push(`hsl(${280 + t * 180}, ${80 + t * 20}%, ${20 + t * 40}%)`);
+                        break;
+                    case 'magma':
+                        colors.push(`hsl(${300 + t * 60}, ${80 + t * 20}%, ${20 + t * 60}%)`);
+                        break;
+                    case 'plasma':
+                        colors.push(`hsl(${260 + t * 160}, 85%, ${20 + t * 60}%)`);
+                        break;
+                    case 'ocean':
+                        colors.push(`hsl(${200 + t * 40}, ${70 + t * 30}%, ${30 + t * 40}%)`);
+                        break;
+                    case 'autumn':
+                        colors.push(`hsl(${30 + t * 40}, ${80 + t * 20}%, ${40 + t * 30}%)`);
+                        break;
+                    case 'forest':
+                        colors.push(`hsl(${90 + t * 40}, ${70 + t * 30}%, ${20 + t * 40}%)`);
+                        break;
+                    case 'sunset':
+                        const h = t < 0.5 ? 
+                            280 + t * 160 : // Purple to orange
+                            360 - (t - 0.5) * 60; // Orange to red
+                        colors.push(`hsl(${h}, 85%, ${30 + t * 40}%)`);
+                        break;
+                    case 'twilight':
+                        colors.push(`hsl(${240 + t * 80}, ${60 + t * 40}%, ${20 + t * 30}%)`);
+                        break;
+                    case 'cosmic':
+                        const s = 70 + Math.sin(t * Math.PI) * 30;
+                        colors.push(`hsl(${280 + t * 200}, ${s}%, ${20 + t * 50}%)`);
+                        break;
+                    default:
+                        colors.push(`hsl(${t * 360}, 80%, 50%)`);
+                }
+            }
+            return colors;
+        };
+
+        
+        // Create character to color mapping
+        const createCharacterMap = (colormap) => {
+            const map = new Map();
+            
+            // Calculate color indices for each group
+            const totalColors = colormap.length;
+            const letterColors = colormap.slice(0, 26); // First 26 colors for letters
+            const numberColors = colormap.slice(26, 36); // Next 10 colors for numbers
+            const specialColors = colormap.slice(36); // Remaining colors for special characters
+            
+            // Map letters (both cases to same color)
+            for (let i = 0; i < 26; i++) {
+                const lower = String.fromCharCode(97 + i); // a-z
+                const upper = String.fromCharCode(65 + i); // A-Z
+                map.set(lower, letterColors[i]);
+                map.set(upper, letterColors[i]);
+            }
+            
+            // Map numbers
+            for (let i = 0; i < 10; i++) {
+                map.set(String(i), numberColors[i]);
+            }
+            
+            // Map special characters
+            const specialChars = [];
+            for (let i = 32; i <= 126; i++) {
+                const char = String.fromCharCode(i);
+                if (!/[A-Za-z0-9]/.test(char)) {
+                    specialChars.push(char);
+                }
+            }
+            
+            specialChars.forEach((char, index) => {
+                map.set(char, specialColors[index % specialColors.length]);
+            });
+            
+            return map;
+        };
+
+        function TextColorGrid() {
+            const [text, setText] = React.useState("Hello, World!\nHow are you?\nThis is a demo.");
+            const [colorMap, setColorMap] = React.useState('rainbow');
+            const [tileSize, setTileSize] = React.useState(32);
+            const [characterColors, setCharacterColors] = React.useState(new Map());
+
+            React.useEffect(() => {
+                const colors = generateColorMap(65, colorMap);
+                setCharacterColors(createCharacterMap(colors));
+            }, [colorMap]);
+
+            //const lines = text.split('\n');
+            const maxLineLength = 48;
+            const lines = [];
+            let currentLine = '';
+            let lineCount = 1;
+
+            for (let i = 0; i < text.length; i++) {
+                currentLine += text[i];
+                
+                if (currentLine.length === maxLineLength) {
+                    lines.push(currentLine);
+                    currentLine = '';
+                    lineCount++;
+                }
+            }
+
+            // Don't forget to add the last line if it's not empty
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            let calculatedTileSize = 32 - lineCount;
+            if (calculatedTileSize < 20) calculatedTileSize = 20;
+
+            return (
+                <div className="text-colormap-container">
+                    <div className="card">
+                        <div className="card-header">
+                            <h2 className="card-title">Text to Color Grid Visualization Demo</h2>
+                        </div>
+                        <div className="card-content">
+                            <div className="controls">
+                                <select 
+                                    value={colorMap}
+                                    onChange={(e) => setColorMap(e.target.value)}
+                                >
+                                    <option value="rainbow">Rainbow</option>
+                                    <option value="viridis">Viridis</option>
+                                    <option value="magma">Magma</option>
+                                    <option value="plasma">Plasma</option>
+                                    <option value="ocean">Ocean</option>
+                                    <option value="autumn">Autumn</option>
+                                    <option value="forest">Forest</option>
+                                    <option value="sunset">Sunset</option>
+                                    <option value="twilight">Twilight</option>
+                                    <option value="cosmic">Cosmic</option>
+                                </select>
+                            </div>
+                            
+                            <textarea
+                                value={text}
+                                onChange={(e) => setText(e.target.value)}
+                                placeholder="Enter text to visualize..."
+                            />
+                            
+                            <div className="grid-container">
+                                <div className="text-grid">
+                                    {lines.map((line, lineIndex) => (
+                                        <div 
+                                            key={lineIndex}
+                                            style={{
+                                                display: 'flex',
+                                                gap: '1px',
+                                                marginBottom: '1px'
+                                            }}
+                                        >
+                                            {Array.from(line).map((char, charIndex) => (
+                                                <div
+                                                    key={`${lineIndex}-${charIndex}`}
+                                                    style={{
+                                                        width: `${calculatedTileSize}px`,
+                                                        height: `${calculatedTileSize}px`,
+                                                        backgroundColor: characterColors.get(char) || '#900C3F',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        fontSize: `${calculatedTileSize * 0.5}px`,
+                                                        color: 'rgba(0,0,0,0.5)',
+                                                        userSelect: 'none'
+                                                    }}
+                                                >
+                                                    {char === ' ' ? '␣' : char}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<TextColorGrid />, document.getElementById('text-colormap-root'));
+    </script>
+</body>
+</html>
