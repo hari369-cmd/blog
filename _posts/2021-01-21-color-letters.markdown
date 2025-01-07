@@ -5,11 +5,11 @@ date:   2021-01-21
 categories: random art
 ---
 
-In the world of programming, we often discuss the differences between programming languages in terms of features, syntax, and performance. But what if we could actually try and *see* these differences? Recently, I came across a fascinating visualization technique that converts code into color patterns, offering a unique way to compare programming languages visually.
+In the world of programming, we often discuss the differences between programming languages in terms of features, syntax, and performance. But what if we could actually try and *see* these differences? Recently, I thought of a visualization technique that converts code into color patterns, offering a unique way to compare programming languages visually.
 
 ## The Experiment
 
-I took a library management system implemented in five different programming languages - Python, JavaScript, Java, C++, and Fortran - and converted each character of code into a colored pixel. You can find a demo of this at the bottom of the page! The result was intriguing with each language producing a distinct visual pattern, with spaces represented as blue pixels. This simple mapping reveals some interesting insights about code structure and language design.
+I took a library management system implemented in five different programming languages - Python, JavaScript, Java, C++, and Fortran - and converted each character of code into a colored pixel. You can find a demo of the visualization at the bottom of the page! The result was intriguing with each language producing a distinct visual pattern, with spaces represented as blue pixels. This simple mapping reveals some interesting insights about code structure and language design.
 
 ![My image Name](/blog/assets/images/color_letters/languages.png)
 
@@ -56,7 +56,7 @@ It is natural to extend this concept beyond programming languages to natural lan
 
 ![My image Name](/blog/assets/images/color_letters/the_laughing_heart.png)
 
-And just for the gags, I also visualized the entire script of the 2007 animated film "Bee Movie". The visualization resembles the nostalgic CRT television static. Larger texts might create more uniform, noise-like patterns when visualized this way.
+And just for gags, I also visualized the entire script of the 2007 animated film "Bee Movie". The visualization resembles the nostalgic CRT television static. Larger texts might create more uniform, noise-like patterns when visualized this way.
 
 ![My image Name](/blog/assets/images/color_letters/bee_movie.png)
 

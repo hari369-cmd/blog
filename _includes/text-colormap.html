@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Text to Color Grid Visualization Demo</title>
@@ -213,6 +212,7 @@
                             
                             <div className="grid-container">
                                 <div className="text-grid">
+                                    {`{% raw %}`}
                                     {lines.map((line, lineIndex) => (
                                         <div 
                                             key={lineIndex}
@@ -242,8 +242,10 @@
                                             ))}
                                         </div>
                                     ))}
+                                    {`{% endraw %}`}
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
